@@ -41,6 +41,12 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             max-width: 800px;
         }
+        .section img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
         footer {
             background: #007acc;
             color: white;
@@ -77,26 +83,31 @@
     </nav>
     <div class="container">
         <div id="qualidade" class="section">
+            <img src="https://source.unsplash.com/800x400/?clean-water" alt="Qualidade da Água">
             <h2>Qualidade da Água</h2>
             <p>Garantir a qualidade da água é essencial para a saúde humana e do meio ambiente. Monitoramos e promovemos práticas seguras para manter a água potável.</p>
             <button onclick="alert('A qualidade da água está sendo monitorada constantemente!')">Saiba Mais</button>
         </div>
         <div id="gestao" class="section" style="display: none;">
+            <img src="https://source.unsplash.com/800x400/?water-management" alt="Gestão de Recursos Hídricos">
             <h2>Gestão de Recursos Hídricos</h2>
             <p>A gestão eficiente da água envolve planejamento e conservação para garantir o abastecimento sustentável para todos.</p>
             <button onclick="alert('A gestão responsável dos recursos hídricos ajuda a evitar desperdícios!')">Entenda Melhor</button>
         </div>
         <div id="protecao" class="section" style="display: none;">
+            <img src="https://source.unsplash.com/800x400/?nature-river" alt="Proteção ao Meio Ambiente">
             <h2>Proteção ao Meio Ambiente</h2>
             <p>Preservar rios, lagos e nascentes é fundamental para manter os ecossistemas equilibrados e saudáveis.</p>
             <button onclick="alert('Você pode contribuir reduzindo o consumo de plásticos descartáveis!')">Como Ajudar?</button>
         </div>
         <div id="tratamento" class="section" style="display: none;">
+            <img src="https://source.unsplash.com/800x400/?water-treatment" alt="Tratamento de Água e Efluentes">
             <h2>Tratamento de Água e Efluentes</h2>
             <p>Técnicas de tratamento garantem que a água utilizada seja devolvida à natureza com segurança, reduzindo impactos ambientais.</p>
             <button onclick="alert('O tratamento de efluentes evita a poluição dos rios!')">Saiba Mais</button>
         </div>
         <div id="contato" class="section" style="display: none;">
+            <img src="https://source.unsplash.com/800x400/?contact-environment" alt="Contato">
             <h2>Contato</h2>
             <p>Entre em contato com Colucci e Mausson para saber mais sobre nossas iniciativas e como você pode contribuir.</p>
             <form onsubmit="enviarFormulario(event)">

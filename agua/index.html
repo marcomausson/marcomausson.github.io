@@ -27,6 +27,7 @@
             color: white;
             text-decoration: none;
             margin: 0 15px;
+            cursor: pointer;
         }
         .container {
             padding: 20px;
@@ -49,6 +50,17 @@
             bottom: 0;
             width: 100%;
         }
+        button {
+            background: #007acc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #005f99;
+        }
     </style>
 </head>
 <body>
@@ -57,33 +69,37 @@
         <p>Preservando os Recursos Hídricos para um Futuro Sustentável</p>
     </header>
     <nav>
-        <a href="#qualidade">Qualidade da Água</a>
-        <a href="#gestao">Gestão de Recursos</a>
-        <a href="#protecao">Proteção Ambiental</a>
-        <a href="#tratamento">Tratamento de Água</a>
-        <a href="#contato">Contato</a>
+        <a onclick="mostrarSecao('qualidade')">Qualidade da Água</a>
+        <a onclick="mostrarSecao('gestao')">Gestão de Recursos</a>
+        <a onclick="mostrarSecao('protecao')">Proteção Ambiental</a>
+        <a onclick="mostrarSecao('tratamento')">Tratamento de Água</a>
+        <a onclick="mostrarSecao('contato')">Contato</a>
     </nav>
     <div class="container">
         <div id="qualidade" class="section">
             <h2>Qualidade da Água</h2>
             <p>Garantir a qualidade da água é essencial para a saúde humana e do meio ambiente. Monitoramos e promovemos práticas seguras para manter a água potável.</p>
+            <button onclick="alert('A qualidade da água está sendo monitorada constantemente!')">Saiba Mais</button>
         </div>
-        <div id="gestao" class="section">
+        <div id="gestao" class="section" style="display: none;">
             <h2>Gestão de Recursos Hídricos</h2>
             <p>A gestão eficiente da água envolve planejamento e conservação para garantir o abastecimento sustentável para todos.</p>
+            <button onclick="alert('A gestão responsável dos recursos hídricos ajuda a evitar desperdícios!')">Entenda Melhor</button>
         </div>
-        <div id="protecao" class="section">
+        <div id="protecao" class="section" style="display: none;">
             <h2>Proteção ao Meio Ambiente</h2>
             <p>Preservar rios, lagos e nascentes é fundamental para manter os ecossistemas equilibrados e saudáveis.</p>
+            <button onclick="alert('Você pode contribuir reduzindo o consumo de plásticos descartáveis!')">Como Ajudar?</button>
         </div>
-        <div id="tratamento" class="section">
+        <div id="tratamento" class="section" style="display: none;">
             <h2>Tratamento de Água e Efluentes</h2>
             <p>Técnicas de tratamento garantem que a água utilizada seja devolvida à natureza com segurança, reduzindo impactos ambientais.</p>
+            <button onclick="alert('O tratamento de efluentes evita a poluição dos rios!')">Saiba Mais</button>
         </div>
-        <div id="contato" class="section">
+        <div id="contato" class="section" style="display: none;">
             <h2>Contato</h2>
             <p>Entre em contato com Colucci e Mausson para saber mais sobre nossas iniciativas e como você pode contribuir.</p>
-            <form>
+            <form onsubmit="enviarFormulario(event)">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required><br><br>
                 <label for="email">E-mail:</label>
@@ -97,5 +113,18 @@
     <footer>
         <p>&copy; 2025 Água e Vida - Todos os direitos reservados - Lupionópolis</p>
     </footer>
+
+    <script>
+        function mostrarSecao(secaoId) {
+            let secoes = document.querySelectorAll('.section');
+            secoes.forEach(secao => secao.style.display = 'none');
+            document.getElementById(secaoId).style.display = 'block';
+        }
+
+        function enviarFormulario(event) {
+            event.preventDefault();
+            alert('Formulário enviado com sucesso! Entraremos em contato em breve.');
+        }
+    </script>
 </body>
 </html>

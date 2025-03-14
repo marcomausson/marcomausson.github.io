@@ -4,7 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars($_POST["email"]);
     $mensagem = htmlspecialchars($_POST["mensagem"]);
 
-    $destinatario = "seuemail@example.com";  // Substitua pelo seu e-mail
+    $destinatario = "mausson2000@gmail.com";  // Substitua pelo seu e-mail
     $assunto = "Nova mensagem do site Água e Vida";
     $corpo_email = "Nome: $nome\nE-mail: $email\n\nMensagem:\n$mensagem";
     $cabecalhos = "From: $email\r\nReply-To: $email\r\nContent-Type: text/plain; charset=UTF-8";

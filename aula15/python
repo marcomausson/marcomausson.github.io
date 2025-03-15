@@ -1,1 +1,50 @@
+import json
+import boto3
+from sklearn.ensemble import IsolationForest
+import numpy as np
 
+# Configuração do cliente S3
+s3_client = boto3.client('s3')
+
+# Função para carregar o modelo de detecção de anomalias
+def load_model(bucket, key):
+    response = s3_client.get_object(Bucket=bucket, Key=key)
+    model = json.loads(response['Body'].read().decode('utf-8'))
+    return model
+
+# Função para detectar fraudes
+def detect_fraud(transaction, model):
+    # Converter a transação em um array numpy
+    transaction_data = np.array([transaction['amount'], transaction['time'], transaction['location']])
+    
+    # Usar o modelo Isolation Forest para prever se a transação é uma anomalia
+    prediction = model.predict([transaction_data])
+    
+    # Se a previsão for -1, é uma anomalia (potencial fraude)
+    if prediction[0] == -1:
+        return True
+    else:
+        return False
+
+# Função principal do Lambda
+def lambda_handler(event, context):
+    # Carregar o modelo de detecção de anomalias
+    model = load_model('your-bucket-name', 'path/to/your/model.json')
+    
+    # Processar cada transação no evento
+    for record in event['Records']:
+        transaction = json.loads(record['body'])
+        
+        # Detectar fraude
+        if detect_fraud(transaction, model):
+            print(f"Fraude detectada: {transaction}")
+            # Enviar alerta via SNS ou salvar no DynamoDB
+            # Exemplo: sns_client.publish(TopicArn='arn:aws:sns:...', Message=f"Fraude detectada: {transaction}")
+        else:
+            print(f"Transação normal: {transaction}")
+
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Processamento concluído')
+    }
+    

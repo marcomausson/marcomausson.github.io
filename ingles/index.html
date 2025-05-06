@@ -5,26 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mind Map: Competencies and Skills for Today's Job Market</title>
     <style>
+        /* Configuração de layout paisagem */
+        @page {
+            size: landscape;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #f0f8ff; /* Fundo azul claro */
             color: #333;
             margin: 0;
             padding: 20px;
+            line-height: 1.6;
         }
 
         .map-container {
-            max-width: 900px;
+            max-width: 1200px; /* Aumentando o tamanho da página */
             margin: 0 auto;
-            padding: 20px;
+            padding: 30px;
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            font-size: 20px; /* Aumentando o tamanho da fonte */
         }
 
         h1 {
             text-align: center;
             color: #2d87f0;
+            font-size: 36px; /* Fonte maior para o título */
+            font-weight: bold;
         }
 
         ul {
@@ -33,41 +42,29 @@
         }
 
         li {
-            margin: 10px 0;
+            margin: 20px 0;
         }
 
         .main-node {
-            font-size: 24px;
+            font-size: 32px; /* Tamanho maior para o tópico principal */
             font-weight: bold;
             color: #2d87f0;
         }
 
         .node {
-            font-size: 18px;
+            font-size: 24px; /* Tamanho maior para os subtítulos */
+            font-weight: bold;
             color: #4CAF50;
         }
 
         .sub-node {
-            font-size: 16px;
+            font-size: 20px; /* Tamanho aumentado para sub-itens */
             color: #FF5722;
-        }
-
-        .indent {
             margin-left: 20px;
         }
 
-        .box {
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
-
-        img {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-            vertical-align: middle;
+        .indent {
+            margin-left: 40px;
         }
 
         .image-list {
@@ -75,9 +72,52 @@
             align-items: center;
         }
 
+        img {
+            width: 70px;
+            height: 70px;
+            margin-right: 15px;
+            border-radius: 50%;
+        }
+
         .image-description {
             display: inline-block;
-            max-width: 800px;
+            max-width: 1000px;
+        }
+
+        .box {
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            font-size: 18px;
+        }
+
+        .highlight {
+            color: #FF9800;
+            font-weight: bold;
+        }
+
+        /* Melhoria no layout geral */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .section {
+            flex: 1;
+            padding: 20px;
+            margin: 10px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 26px;
+            color: #2d87f0;
+            margin-bottom: 20px;
+            text-align: center;
         }
     </style>
 </head>
@@ -85,25 +125,13 @@
 
     <div class="map-container">
         <h1>Mind Map: Competencies and Skills for Today's Job Market</h1>
-        
-        <ul>
-            <li class="main-node">Competencies and Skills for Today's Job Market</li>
-            <ul>
-                <li class="node">What are Competencies?</li>
-                <ul>
-                    <li class="sub-node">A combination of knowledge, skills, abilities, and experience needed to perform tasks effectively in a specific context.</li>
-                    <li class="sub-node">They go beyond technical skills, including behavioral and cognitive abilities.</li>
-                </ul>
 
-                <li class="node">What are Skills?</li>
+        <div class="container">
+            <!-- Competências Section -->
+            <div class="section">
+                <h2 class="section-title">Key Competencies</h2>
                 <ul>
-                    <li class="sub-node">The ability to perform specific tasks or activities with proficiency.</li>
-                    <li class="sub-node">Skills are more focused on practical execution and can be learned through practice or training.</li>
-                </ul>
-
-                <li class="node">Key Competencies for Today's Job Market</li>
-                <ul>
-                    <li class="sub-node">
+                    <li class="main-node">
                         <div class="image-list">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Adaptability_icon.svg/120px-Adaptability_icon.svg.png" alt="Adaptability">
                             <div class="image-description">
@@ -114,7 +142,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="sub-node">
+                    <li class="main-node">
                         <div class="image-list">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Critical_thinking_icon.svg/120px-Critical_thinking_icon.svg.png" alt="Critical Thinking">
                             <div class="image-description">
@@ -125,7 +153,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="sub-node">
+                    <li class="main-node">
                         <div class="image-list">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Emotional_intelligence_icon.svg/120px-Emotional_intelligence_icon.svg.png" alt="Emotional Intelligence">
                             <div class="image-description">
@@ -136,33 +164,14 @@
                             </div>
                         </div>
                     </li>
-                    <li class="sub-node">
-                        <div class="image-list">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Leadership_icon.svg/120px-Leadership_icon.svg.png" alt="Leadership">
-                            <div class="image-description">
-                                <strong>Leadership:</strong> The ability to guide and motivate a team toward achieving goals.
-                                <ul>
-                                    <li class="sub-node">Example: Leading a project team, setting clear goals, and motivating team members to meet deadlines.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="sub-node">
-                        <div class="image-list">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Teamwork_icon.svg/120px-Teamwork_icon.svg.png" alt="Teamwork">
-                            <div class="image-description">
-                                <strong>Collaboration and Teamwork:</strong> The ability to work effectively with others to achieve shared objectives.
-                                <ul>
-                                    <li class="sub-node">Example: Working in a cross-functional team to develop a new product and incorporating input from various departments.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
                 </ul>
+            </div>
 
-                <li class="node">Key Skills for Today's Job Market</li>
+            <!-- Habilidades Section -->
+            <div class="section">
+                <h2 class="section-title">Key Skills</h2>
                 <ul>
-                    <li class="sub-node">
+                    <li class="main-node">
                         <div class="image-list">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Technical_skills_icon.svg/120px-Technical_skills_icon.svg.png" alt="Technical Skills">
                             <div class="image-description">
@@ -173,7 +182,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="sub-node">
+                    <li class="main-node">
                         <div class="image-list">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Communication_skills_icon.svg/120px-Communication_skills_icon.svg.png" alt="Communication Skills">
                             <div class="image-description">
@@ -184,7 +193,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="sub-node">
+                    <li class="main-node">
                         <div class="image-list">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Problem_solving_icon.svg/120px-Problem_solving_icon.svg.png" alt="Problem Solving">
                             <div class="image-description">
@@ -195,31 +204,9 @@
                             </div>
                         </div>
                     </li>
-                    <li class="sub-node">
-                        <div class="image-list">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Time_management_icon.svg/120px-Time_management_icon.svg.png" alt="Time Management">
-                            <div class="image-description">
-                                <strong>Time Management:</strong> The ability to prioritize tasks and manage time effectively to meet deadlines.
-                                <ul>
-                                    <li class="sub-node">Example: Organizing your daily tasks to ensure high-priority work is done first and on time.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="sub-node">
-                        <div class="image-list">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Digital_literacy_icon.svg/120px-Digital_literacy_icon.svg.png" alt="Digital Literacy">
-                            <div class="image-description">
-                                <strong>Digital Literacy:</strong> The ability to use technology efficiently in the workplace, including software, digital tools, and the internet.
-                                <ul>
-                                    <li class="sub-node">Example: Using collaboration platforms like Microsoft Teams or Slack to communicate and share information with your team.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
                 </ul>
-            </ul>
-        </ul>
+            </div>
+        </div>
     </div>
 
 </body>

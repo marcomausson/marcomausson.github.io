@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GYM CONTROL - Controle de Evasão</title>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -58,13 +61,38 @@
     button:hover {
       background-color: #34495e;
     }
+    #login-area {
+      display: none;
+    }
   </style>
   <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "SUA_API_KEY",
+      authDomain: "SUA_AUTH_DOMAIN",
+      databaseURL: "SUA_DATABASE_URL",
+      projectId: "SEU_PROJECT_ID",
+      storageBucket: "SEU_BUCKET",
+      messagingSenderId: "SEU_SENDER_ID",
+      appId: "SEU_APP_ID"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
     function cadastrarAluno() {
       const nome = document.getElementById('nome').value;
       const status = document.getElementById('status').value;
       const motivo = document.getElementById('motivo').value;
 
+      const novoAluno = { nome, status, motivo };
+      db.ref('alunos').push(novoAluno);
+
+      adicionarAlunoNaTabela(novoAluno);
+      document.getElementById('form-aluno').reset();
+    }
+
+    function adicionarAlunoNaTabela(aluno) {
       const tabela = document.getElementById('tabela-alunos');
       const novaLinha = tabela.insertRow();
 
@@ -72,17 +100,51 @@
       const cell2 = novaLinha.insertCell(1);
       const cell3 = novaLinha.insertCell(2);
 
-      cell1.innerText = nome;
-      cell2.innerText = status;
-      cell3.innerText = motivo;
-
-      document.getElementById('form-aluno').reset();
+      cell1.innerText = aluno.nome;
+      cell2.innerText = aluno.status;
+      cell3.innerText = aluno.motivo;
     }
+
+    function carregarAlunos() {
+      db.ref('alunos').once('value', snapshot => {
+        snapshot.forEach(childSnapshot => {
+          adicionarAlunoNaTabela(childSnapshot.val());
+        });
+      });
+    }
+
+    function gerarGrafico() {
+      const ctx = document.getElementById('graficoFrequencia').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril'],
+          datasets: [{
+            label: 'Evasão Mensal (%)',
+            data: [5, 8, 6, 9],
+            backgroundColor: 'rgba(255, 99, 132, 0.5)'
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100
+            }
+          }
+        }
+      });
+    }
+
+    window.onload = () => {
+      carregarAlunos();
+      gerarGrafico();
+    };
   </script>
 </head>
 <body>
   <header>
-    <h1>FitGestor - Controle de Evasão de Alunos</h1>
+    <h1>GYM CONTROL - Controle de Evasão de Alunos</h1>
   </header>
   <div class="container">
 
@@ -122,22 +184,12 @@
           <th>Status</th>
           <th>Motivo</th>
         </tr>
-        <tr>
-          <td>João Silva</td>
-          <td class="danger">Inativo</td>
-          <td>12 dias sem frequentar</td>
-        </tr>
-        <tr>
-          <td>Carla Lima</td>
-          <td class="danger">Plano vencido</td>
-          <td>Não renovou</td>
-        </tr>
-        <tr>
-          <td>Pedro Costa</td>
-          <td class="danger">Frequência baixa</td>
-          <td>-80% no último mês</td>
-        </tr>
       </table>
+    </div>
+
+    <div class="card">
+      <h3>Gráfico de Evasão</h3>
+      <canvas id="graficoFrequencia" width="400" height="200"></canvas>
     </div>
 
     <div class="card">

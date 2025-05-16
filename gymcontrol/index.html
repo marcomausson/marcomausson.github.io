@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitGestor - Controle de Evasão</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      padding: 2rem;
+    }
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .card h3 {
+      margin-top: 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 0.75rem;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    .danger {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FitGestor - Controle de Evasão de Alunos</h1>
+  </header>
+  <div class="container">
+
+    <div class="card">
+      <h3>Resumo</h3>
+      <p><strong>Alunos ativos:</strong> 132</p>
+      <p><strong>Alunos inativos:</strong> 17</p>
+      <p><strong>Risco de evasão:</strong> <span class="danger">11</span></p>
+      <p><strong>Evasão no mês:</strong> 8%</p>
+    </div>
+
+    <div class="card">
+      <h3>Alunos em Risco</h3>
+      <table>
+        <tr>
+          <th>Nome</th>
+          <th>Status</th>
+          <th>Motivo</th>
+        </tr>
+        <tr>
+          <td>João Silva</td>
+          <td class="danger">Inativo</td>
+          <td>12 dias sem frequentar</td>
+        </tr>
+        <tr>
+          <td>Carla Lima</td>
+          <td class="danger">Plano vencido</td>
+          <td>Não renovou</td>
+        </tr>
+        <tr>
+          <td>Pedro Costa</td>
+          <td class="danger">Frequência baixa</td>
+          <td>-80% no último mês</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Ações de Retenção</h3>
+      <ul>
+        <li>[ ] Enviar cupom de 20% para inativos há 15 dias</li>
+        <li>[ ] Ligar para alunos com queda de frequência</li>
+        <li>[ ] Criar campanha de reativação no WhatsApp</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>
